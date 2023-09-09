@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url(https://wallpapers.com/images/hd/red-and-blue-calculators-yxm0myfzuym67431.jpg);
+        }
+
+        #calculator {
+            width: 400px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 75%;
+            padding: 40px;
+            margin-bottom: 15px;
+            margin-left: 10px;
+            /* border: 1px solid #ccc;
+            border-radius: 5px; */
+            font-size: 18px;
+            text-align: right;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            text-align: center;
+            padding: 10px;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+            
+        #backspace{
+            padding: 10px;
+            background-color: #98FB98;
+        }
+
+        input[type="button"]:hover {
+            background-color: #ccc;
+        }
+    </style>
+    <script>
+        function clearDisplay() {
+            calculatorForm.display.value = "";
+        }
+        function calculate() {
+            calculatorForm.display.value = eval(calculatorForm.display.value);
+        }
+        function removeLastCharacter() {
+            calculatorForm.display.value = calculatorForm.display.value.slice(0, -1);
+        }
+        function calculateSquareRoot() {
+            calculatorForm.display.value = Math.sqrt(calculatorForm.display.value);
+        }
+    </script>
+</head>
+<body>
+    <div id="calculator">
+        <h1>Calculator</h1>
+        <form name="calculatorForm">
+            <input type="text" name="display" readonly>
+            <table>
+                <tr>
+                    <td><input type="button" value="C" onclick="clearDisplay()"></td>
+                    <td><input type="button" value="&#8730;" onclick="calculateSquareRoot()"></td>
+                    <td><input type="button" value="%" onclick="calculatorForm.display.value += '%'"></td>
+                    <td><input type="button" id="backspace" value="&#9003;" onclick="removeLastCharacter()"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="calculatorForm.display.value += '1'"></td>
+                    <td><input type="button" value="2" onclick="calculatorForm.display.value += '2'"></td>
+                    <td><input type="button" value="3" onclick="calculatorForm.display.value += '3'"></td>
+                    <td><input type="button" value="+" onclick="calculatorForm.display.value += '+'"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="calculatorForm.display.value += '4'"></td>
+                    <td><input type="button" value="5" onclick="calculatorForm.display.value += '5'"></td>
+                    <td><input type="button" value="6" onclick="calculatorForm.display.value += '6'"></td>
+                    <td><input type="button" value="-" onclick="calculatorForm.display.value += '-'"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="calculatorForm.display.value += '7'"></td>
+                    <td><input type="button" value="8" onclick="calculatorForm.display.value += '8'"></td>
+                    <td><input type="button" value="9" onclick="calculatorForm.display.value += '9'"></td>
+                    <td><input type="button" value="*" onclick="calculatorForm.display.value += '*'"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="." onclick="calculatorForm.display.value += '.'"></td>
+                    <td><input type="button" value="0" onclick="calculatorForm.display.value += '0'"></td>
+                    <td><input type="button" value="=" onclick="calculatorForm.display.value = eval(calculatorForm.display.value)"></td>
+                    <td><input type="button" value="/" onclick="calculatorForm.display.value += '/'"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
